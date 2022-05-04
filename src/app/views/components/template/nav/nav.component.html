@@ -1,0 +1,32 @@
+<mat-drawer-container class="container" autosize>
+    <mat-drawer #drawer class="sidenav" mode="side">
+        <mat-nav-list class="nav-list">
+            <a mat-list-item routerLink="/">
+                <i class="material-icons">home</i>Home
+            </a>
+            <a mat-list-item routerLink="restaurantes">
+                <i class="material-icons">restaurant</i>Restaurantes
+            </a>
+            <a mat-list-item routerLink="cozinhas">
+                <i class="material-icons">dinner_dining</i>Cozinhas
+            </a>
+            <a mat-list-item routerLink="/">
+                <i class="material-icons">map</i>Estados
+            </a>
+            <a mat-list-item routerLink="/">
+                <i class="material-icons">location_city</i>Cidades
+            </a>
+        </mat-nav-list>
+    </mat-drawer>
+  
+    <div class="sidenav-content">
+      <button mat-icon-button (click)="drawer.toggle()">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <router-outlet>
+
+      </router-outlet>
+      
+    </div>
+  
+  </mat-drawer-container>
