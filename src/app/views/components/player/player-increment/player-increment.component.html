@@ -1,0 +1,41 @@
+<form  class="form mat-elevation-z8">
+    <h1>Atualizar Partidas</h1>
+    <mat-form-field class="full-width">
+        <mat-label>Nome</mat-label>
+        <input [(ngModel)]="player.name" [formControl]="name" readonly name="player.nome" maxlength="30" matInput
+            placeholder="Ex. José da Silva">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+        <mat-label>Nickname</mat-label>
+        <input [(ngModel)]="player.nickname" [formControl]="nickname" readonly name="player.nickname" maxlength="16"
+            matInput placeholder="Ex: zezinho">
+    </mat-form-field>
+
+    <h4>Adicionar Vitórias</h4>
+    <mat-input-counter name="player.nickname.game.totalWins" 
+        [min]="+player.game.totalWins" 
+        [max]="+player.game.totalGames"
+        [(ngModel)]="+player.game.totalWins" 
+        label="Vitórias" 
+        placeholder="Total de Vitórias">
+    </mat-input-counter>
+
+    <h4>Adicionar Partidas</h4>
+    <mat-input-counter name="player.nickname.game.totalGames" 
+        [min]="+player.game.totalGames" 
+        [max]="+player.game.totalGames * 2"
+        [(ngModel)]="player.game.totalGames" 
+        label="Partidas" 
+        placeholder="Total de Partidas">
+    </mat-input-counter>
+
+    <button class="mat-elevation-z8" (click)="increment()" mat-stroked-button color="primary">Atualizar</button>
+    <button class="mat-elevation-z8" (click)="cancel()" mat-stroked-button color="warn">Cancelar</button>
+</form>
+
+<div>
+    <pre>
+      {{player | json}}
+    </pre>
+</div>
