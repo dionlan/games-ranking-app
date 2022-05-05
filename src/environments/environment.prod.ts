@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: 'https://gamesranking.herokupp'
+  baseUrl: 'https://games-ranking-api.herokuapp.com'
 };
