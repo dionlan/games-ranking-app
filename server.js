@@ -1,15 +1,18 @@
-//Install express server
 const express = require('express');
 const path = require('path');
-
+const port = process.env.PORT || 3000;
 const app = express();
+// the __dirname is the current directory from where the script is running
+app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, 'dist')));
+app.get('/ping', function(req, res) {
+ return res.send('pong');
+});
+app.get('/*', function (req, res) {
+  res.set('Access-Control-Allow-Origin', 'https://financial-diagnosis-api.herokuapp.com/');
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
 
-// Serve only the static files form the dist directory
-app.use(express.static('./dist/games-ranking-app'));
-
-app.get('/*', (req, res) =>
-    res.sendFile('index.html', {root: 'dist/games-ranking-app'}),
-);
-
-// Start the app by listening on the default Heroku port
-app.listen(process.env.PORT || 8080);
+app.listen(port, () => {
+   console.log('Server is UP! Port: ', port);
+});
