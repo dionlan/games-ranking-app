@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Game } from 'src/app/models/game';
 import { Player } from 'src/app/models/player';
-import { GameService } from 'src/app/services/game.service';
 import { PlayerService } from 'src/app/services/player.service';
 
 @Component({
