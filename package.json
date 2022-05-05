@@ -3,11 +3,17 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "startDev": "ng serve",
+    "start": "node server.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "heroku-postbuild": "ng build --prod"
   },
+  "engines": {
+    "node": "16.13.1",
+    "npm": "8.8.0"
+ },
   "private": true,
   "dependencies": {
     "@angular-material-extensions/input-counter": "^0.1.1",
