@@ -28,8 +28,8 @@ export class PlayerIncrementComponent implements OnInit {
     name: '',
     nickname: '',
     game: {
-      totalWins: 0,
-      totalGames: 0
+      totalWins: 0xf00d,
+      totalGames: 0xf00d
     }
   }
 
@@ -38,8 +38,7 @@ export class PlayerIncrementComponent implements OnInit {
 
   constructor(private router: Router, 
               private playerService: PlayerService, 
-              private route: ActivatedRoute,
-              private formBuilder: FormBuilder) {}
+              private route: ActivatedRoute ) {}
 
   ngOnInit(): void { 
     this.nickname_param = this.route.snapshot.paramMap.get('nickname')!;
@@ -77,6 +76,7 @@ export class PlayerIncrementComponent implements OnInit {
         totalGames: this.player.game.totalGames
       }
     });
+    this.errorValidate();
   }
 
   cancel(): void {
@@ -84,20 +84,25 @@ export class PlayerIncrementComponent implements OnInit {
   }
 
   errorValidate() {
+    console.log('this.player.game.totalWins ', this.player.game.totalWins )
+    console.log('this.player.game.totalGames ', this.player.game.totalGames)
     if(this.player.game.totalGames < this.player.game.totalWins){
       return this.playerService.message('O total de partidas não pode ser inferior ao total de vitórias');
 
     }else if(this.player.game.totalWins < 0){
       return this.playerService.message('O total de vitórias não pode ser inferior a 0');
 
+    }else if(this.player.game.totalWins === 0 && this.player.game.totalGames === 0){
+      return this.playerService.message('Informe um valor inteiro para os campos');
+
+    }else if(!this.player.game.totalWins){
+      return this.playerService.message('Informe um valor inteiro maior que 0');
+
+    } else if(!this.player.game.totalGames){
+      return this.playerService.message('Informe um valor inteiro maior que 1');
+
     }else if(this.player.game.totalGames < 1){
       return this.playerService.message('O total de partidas não pode ser inferior a 1');
-
-    }else if(this.name.invalid){
-      return this.playerService.message('O nome do jogador deve ter entre 5 e 30 caracteres.');
-
-    }else if(this.nickname.invalid){
-      return this.playerService.message( 'O nickname deve ter entre 5 e 12 caracteres.');
 
     }else{
       return true;

@@ -1,14 +1,13 @@
 <form class="form">
-    <h1>Registrar Participante</h1>
+    <h1>Registrar Jogador</h1>
     <mat-form-field class="full-width">
         <mat-label>Nome: </mat-label>
-        <input matInput type="text" [(ngModel)]="player.name" required name="name" 
-            placeholder="Ex. José da Silva">
+        <input matInput type="text" [(ngModel)]="player.name" required name="name" minlength="5" maxlength="30" placeholder="Ex. José da Silva">
     </mat-form-field>
 
     <mat-form-field class="full-width">
         <mat-label>Apelido: </mat-label>
-        <input matInput type="text" [(ngModel)]="player.nickname" required name="nickname" placeholder="zezinho">
+        <input matInput type="text" [(ngModel)]="player.nickname" required name="nickname" minlength="5" maxlength="12" placeholder="zezinho">
     </mat-form-field>
 
     <mat-input-counter 

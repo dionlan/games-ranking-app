@@ -18,12 +18,12 @@
     width: 90%;
     margin-right: auto;
     margin-left: auto;
-  }
+}
 
-  table {
-      width: 100%;
-  }
+table {
+    width: 100%;
+}
   
-  #increment{
-      color:rgb(rgb(255, 102, 75));
-  }
+#increment{
+    color: firebrick
+}

@@ -49,6 +49,7 @@ export class PlayerCreateComponent implements OnInit {
         totalGames: this.player.game.totalGames
       }
     });
+    this.errorValidadeRegister();
   }
 
   cancel():void {
@@ -83,18 +84,23 @@ export class PlayerCreateComponent implements OnInit {
     if(this.player.name.length < 5 || this.player.name.length > 30){
       return this.playerService.message('O nome deve ter entre 5 e 30 caracteres');
 
-    }else if(this.player.name){
+    }else if(!this.player.name){
       return this.playerService.message('Infome um valor para o nome');
 
-    }else if(this.player.nickname){
+    }else if(!this.player.nickname){
       return this.playerService.message('Infome um valor para o nickname');
+
+    }else if(/\s/.test(this.player.nickname)){
+      return this.playerService.message('O apelido não pode conter espaços em branco');
 
     }else if(this.player.nickname.length < 5 || this.player.nickname.length > 12){
       return this.playerService.message('O aplido deve ter entre 5 e 12 caracteres');
 
+    }else if(this.player.game.totalWins === 0 && this.player.game.totalGames === 0){
+      return this.playerService.message('Informe um valor inteiro para os campos');
+      
     }else{
       return true;
-
     }
   } 
 }
