@@ -9,7 +9,17 @@ import { PlayerService } from 'src/app/services/player.service';
   templateUrl: './player-create.component.html',
   styleUrls: ['./player-create.component.css']
 })
-export class PlayerCreateComponent implements OnInit {
+export class PlayerCreateComponent {
+
+  max = 100;
+  minWin = 0;
+  minGame = 1;
+  thumbLabel = true;
+  step = 1;
+  value = 0;
+
+  totalWins = new FormControl(0, Validators.min(10));
+  totalGames = new FormControl(0, [Validators.max(10 * Number(this.totalWins))]);
 
   players: Player[] = []
 
@@ -27,15 +37,15 @@ export class PlayerCreateComponent implements OnInit {
     nickname: '',
     game: {
       totalWins: 0,
-      totalGames: 0
+      totalGames: 1
     }
   }
  
   constructor(private router: Router,
-              private playerService: PlayerService) { }
+              private playerService: PlayerService ) {}
 
-  ngOnInit(): void {
-    this.listAllPlayers();
+  getTotalGames() {
+    return Math.max(2, this.totalWins.value + this.totalGames.value);
   }
 
   popularFormCadastroRestaurante(): void{
@@ -79,6 +89,8 @@ export class PlayerCreateComponent implements OnInit {
   }
 
  errorValidadeRegister(){
+   console.log('TOTAL DE VITÓRIOAS: ', this.player.game.totalWins )
+   console.log('TOTAL DE PARTIDAS: ', this.player.game.totalGames)
     if(this.player.name.length < 5 || this.player.name.length > 30){
       return this.playerService.message('O nome deve ter entre 5 e 30 caracteres');
 
@@ -93,6 +105,9 @@ export class PlayerCreateComponent implements OnInit {
 
     }else if(this.player.nickname.length < 5 || this.player.nickname.length > 12){
       return this.playerService.message('O aplido deve ter entre 5 e 12 caracteres');
+
+    }else if(this.player.game.totalGames < this.player.game.totalWins){
+      return this.playerService.message('O quantidade de vitórias não pode ser inferior ao de partidas');
 
     }else if(this.player.game.totalWins === 0 && this.player.game.totalGames === 0){
       return this.playerService.message('Informe um valor inteiro para os campos');

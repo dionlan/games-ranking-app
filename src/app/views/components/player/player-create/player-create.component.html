@@ -10,6 +10,7 @@
         <input matInput type="text" [(ngModel)]="player.nickname" required name="nickname" minlength="5" maxlength="12" placeholder="zezinho">
     </mat-form-field>
 
+    <!--
     <mat-input-counter 
         name="totalWins"
         [min]="+player.game.totalWins" 
@@ -27,6 +28,54 @@
         label="Partidas" 
         placeholder="Total de Partidas">
     </mat-input-counter>
+    <mat-form-field class="full-width">
+        <mat-label>Informe o total de vitórias: </mat-label>
+        <input matInput type="number" placeholder="Ex. 2" [formControl]="totalWins" 
+            min="0" max="5">
+    </mat-form-field>-->
+
+    <mat-card class="example-result-card">
+        <mat-card-content>
+          <div class="example-label-container" [class]="'example-label-horizontal'">
+            <label id="example-name-label" class="example-name-label">Quantidade de Vitórias</label>
+            <label class="example-value-label">{{player.game.totalWins}}</label>
+          </div>
+          <mat-slider
+              class="example-margin"
+              [max]="max"
+              [min]="minWin"
+              [step]="step"
+              [thumbLabel]="thumbLabel"
+              [(ngModel)]="player.game.totalWins" name="totalWins" 
+              aria-labelledby="example-name-label">
+          </mat-slider>
+        </mat-card-content>
+
+        <mat-card-content>
+          <div class="example-label-container" [class]="'example-label-horizontal'">
+            <label id="example-name-label" class="example-name-label">Quantidade de Partidas</label>
+            <label class="example-value-label">{{player.game.totalGames}}</label>
+          </div>
+          <mat-slider
+              class="example-margin"
+              [max]="max"
+              min={{minGame}}
+              [step]="step"
+              [(ngModel)]="player.game.totalGames" 
+              [thumbLabel]="thumbLabel"
+              name="totalGames" 
+              aria-labelledby="example-name-label">
+          </mat-slider>
+        </mat-card-content>
+        
+      </mat-card>
+      <br>
+    <!--
+    <mat-form-field class="full-width">
+        <mat-label>Informe o total de partidas: </mat-label>
+        <input matInput type="number" placeholder="Ex. 2"  [formControl]="totalGames" 
+            min="0" max="5">
+    </mat-form-field> -->
 
     <!-- <mat-form-field class="full-width">
         <mat-label>Selecione uma cozinha</mat-label>
@@ -39,8 +88,10 @@
     <button (click)="cancel()" mat-stroked-button color="warn">Cancelar</button>
 </form>
 
-<div>
-    <pre>
-      {{player | json}}
-    </pre>
-</div>
+<!-- 
+    <div>
+        <pre>
+        {{player | json}}
+        </pre>
+    </div>
+-->

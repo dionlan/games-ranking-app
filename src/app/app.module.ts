@@ -35,6 +35,7 @@ import { PlayerIncrementComponent } from './views/components/player/player-incre
 import { PlayerCreateComponent } from './views/components/player/player-create/player-create.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AboutComponent } from './views/components/about/about.component';
+import { MatSliderModule } from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { AboutComponent } from './views/components/about/about.component';
     MatPaginatorModule,
     MatSnackBarModule,
     MatFormFieldModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatSliderModule
   
   ],
   providers: [],

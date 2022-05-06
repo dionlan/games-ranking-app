@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { PlayerService } from 'src/app/services/player.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: PlayerService, private router: Router) {}
 
   ngOnInit(): void {
+  }
+
+  navigateToHome():void {
+    this.router.navigate([''])
+  }
+  navigateToRanking():void {
+    this.router.navigate(['api/players'])
+  }
+  navigateToAbout():void {
+    this.router.navigate(['api/about'])
   }
 
 }
