@@ -102,7 +102,7 @@ export class PlayerIncrementComponent implements OnInit {
     }else if(this.player.game.totalWins === 0 && this.player.game.totalGames === 0){
       return this.playerService.message('Informe um valor inteiro para os campos');
 
-    }else if(!this.player.game.totalWins){
+    }else if(this.player.game.totalWins){
       return this.playerService.message('Informe um valor inteiro maior que 0');
 
     } else if(!this.player.game.totalGames){

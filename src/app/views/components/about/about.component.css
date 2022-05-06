@@ -10,3 +10,8 @@ img {
     object-fit: cover; 
     object-position: center;
 }
+
+.mat-success {
+    background-color: green;
+    color: #fff;
+}
