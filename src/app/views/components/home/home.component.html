@@ -1,12 +1,14 @@
 <mat-card class="mat-elevation-z8">
-    <mat-card-header>
+    <mat-card-title-group>
         <mat-card-title>Desafio - Ranking Games</mat-card-title>
+        <mat-card-subtitle>Evolui Tecnologia</mat-card-subtitle>
+        <img mat-card-xl-image src="assets/img/logo.svg" alt="Evolui Tecnologia">
+    </mat-card-title-group>
+    <mat-card-content>
         API desenvolvida para classificar em ordem decrescente uma lista de jogadores. 
         <div class="create">
         <h1>Ranking de Jogos</h1>
             <button (click)="navigateToCreate()" class="mat-elevation-z8 container" mat-stroked-button color="primary">Visualizar Ranking</button>
-        </div> 
-        
-        <img src="assets/img/logo.svg" alt="Evolui Tecnologia">
-    </mat-card-header>
+        </div>
+    </mat-card-content>
 </mat-card>

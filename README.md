@@ -1,4 +1,7 @@
-# GamesRankingApp
+# App Games Ranking
+
+Implementação de um App em Angular para classificar jogadores de acordo com a quantidade de vitórias. 
+Desafio em andamento de processo seletivo Dev Java.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.4.
 
