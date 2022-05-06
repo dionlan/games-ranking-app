@@ -1,0 +1,12 @@
+mat-card{
+    width: 80%;
+    height: 30%;
+    margin: 0em auto 0 auto;
+}
+
+img {
+    height: fit-content; 
+    max-height: 400px !important; 
+    object-fit: cover; 
+    object-position: center;
+}

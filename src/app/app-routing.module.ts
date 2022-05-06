@@ -4,6 +4,7 @@ import { PlayerCreateComponent } from './views/components/player/player-create/p
 import { PlayerIncrementComponent } from './views/components/player/player-increment/player-increment.component';
 import { PlayerReadComponent } from './views/components/player/player-read/player-read.component';
 import { HomeComponent } from './views/components/home/home.component';
+import { AboutComponent } from './views/components/about/about.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
     path: 'api/players/increment/:nickname',
     component: PlayerIncrementComponent
   },
+  {
+    path: 'api/about',
+    component: AboutComponent
+  }
 ];
 
 @NgModule({

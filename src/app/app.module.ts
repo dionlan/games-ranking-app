@@ -22,6 +22,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
+import {MatChipsModule} from '@angular/material/chips';
+
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -32,6 +34,7 @@ import { PlayerReadComponent } from './views/components/player/player-read/playe
 import { PlayerIncrementComponent } from './views/components/player/player-increment/player-increment.component';
 import { PlayerCreateComponent } from './views/components/player/player-create/player-create.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { AboutComponent } from './views/components/about/about.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +43,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FooterComponent,
     NavComponent,
     HomeComponent,
+    AboutComponent,
     PlayerReadComponent,
     PlayerIncrementComponent,
     PlayerCreateComponent
@@ -60,7 +64,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
     MatButtonModule,
     MatListModule,
-
+    MatChipsModule,
+    
     MatCardModule,
     MatTableModule,
     MatSelectModule,
