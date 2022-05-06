@@ -8,7 +8,6 @@ app.get('/ping', function(req, res) {
  return res.send('pong');
 });
 app.get('/*', function (req, res) {
-  res.set('Access-Control-Allow-Origin', 'https://financial-diagnosis-api.herokuapp.com');
   res.sendFile('index.html', {root: 'dist/games-ranking-app/'})
 });
 
