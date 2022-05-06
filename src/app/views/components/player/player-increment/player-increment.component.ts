@@ -15,8 +15,9 @@ export class PlayerIncrementComponent implements OnInit {
   minGame = 1;
   thumbLabel = true;
   step = 1;
-  value = 0;
-  
+  valueWin = 0;
+  valueGame = 1;
+
   nickname_param = '';
 
   players: Player[] = [];
@@ -78,8 +79,8 @@ export class PlayerIncrementComponent implements OnInit {
       name: this.player.name,
       nickname: this.player.nickname,
       game: {
-        totalWins: this.player.game.totalWins,
-        totalGames: this.player.game.totalGames
+        totalWins: this.valueWin + this.player.game.totalWins,
+        totalGames: this.valueWin + this.valueGame + this.player.game.totalGames
       }
     });
     this.errorValidate();

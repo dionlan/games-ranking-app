@@ -14,9 +14,10 @@
 
     <mat-card class="example-result-card">
         <mat-card-content>
+        <label id="example-name-label" class="example-name-label">Total Parcial de Vitórias: {{player.game.totalWins}}</label>
           <div class="example-label-container" [class]="'example-label-horizontal'">
-            <label id="example-name-label" class="example-name-label">Atualizar Vitórias</label>
-            <label class="example-value-label">{{player.game.totalWins}}</label>
+            <label id="example-name-label" class="example-name-label">Adicionar mais {{valueWin}} </label>
+            <label class="example-value-label">Total Vitórias: {{valueWin + player.game.totalWins}}</label>
           </div>
           <mat-slider
               class="example-margin"
@@ -24,22 +25,25 @@
               [min]="minWin"
               [step]="step"
               [thumbLabel]="thumbLabel"
-              [(ngModel)]="player.game.totalWins" name="totalWins" 
+              [(ngModel)]="valueWin" name="totalWins" 
               aria-labelledby="example-name-label">
           </mat-slider>
         </mat-card-content>
   
         <mat-card-content>
+        <label id="example-name-label" class="example-name-label">Total Parcial de Partidas: {{player.game.totalGames}}</label>
           <div class="example-label-container" [class]="'example-label-horizontal'">
-            <label id="example-name-label" class="example-name-label">Atualizar Partidas</label>
-            <label class="example-value-label">{{player.game.totalGames}}</label>
+            <label id="example-name-label" class="example-name-label">Adicionar mais {{valueGame + valueWin}} </label>
+            <label class="example-value-label">Total Partidas: {{
+                valueWin == valueGame ? (valueWin + valueGame + player.game.totalGames) -1 : valueWin + valueGame + player.game.totalGames}}
+            </label>
           </div>
           <mat-slider
               class="example-margin"
               [max]="max"
               min={{minGame}}
               [step]="step"
-              [(ngModel)]="player.game.totalGames" 
+              [(ngModel)]="valueGame" 
               [thumbLabel]="thumbLabel"
               name="totalGames" 
               aria-labelledby="example-name-label">
