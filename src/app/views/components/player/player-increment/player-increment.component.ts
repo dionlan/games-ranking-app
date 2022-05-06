@@ -10,7 +10,13 @@ import { PlayerService } from 'src/app/services/player.service';
   styleUrls: ['./player-increment.component.css']
 })
 export class PlayerIncrementComponent implements OnInit {
-
+  max = 100;
+  minWin = 0;
+  minGame = 1;
+  thumbLabel = true;
+  step = 1;
+  value = 0;
+  
   nickname_param = '';
 
   players: Player[] = [];

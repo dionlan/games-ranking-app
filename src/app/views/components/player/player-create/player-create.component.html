@@ -35,41 +35,41 @@
     </mat-form-field>-->
 
     <mat-card class="example-result-card">
-        <mat-card-content>
-          <div class="example-label-container" [class]="'example-label-horizontal'">
-            <label id="example-name-label" class="example-name-label">Quantidade de Vitórias</label>
-            <label class="example-value-label">{{player.game.totalWins}}</label>
-          </div>
-          <mat-slider
-              class="example-margin"
-              [max]="max"
-              [min]="minWin"
-              [step]="step"
-              [thumbLabel]="thumbLabel"
-              [(ngModel)]="player.game.totalWins" name="totalWins" 
-              aria-labelledby="example-name-label">
-          </mat-slider>
-        </mat-card-content>
+      <mat-card-content>
+        <div class="example-label-container" [class]="'example-label-horizontal'">
+          <label id="example-name-label" class="example-name-label">Quantidade de Vitórias</label>
+          <label class="example-value-label">{{player.game.totalWins}}</label>
+        </div>
+        <mat-slider
+            class="example-margin"
+            [max]="max"
+            [min]="minWin"
+            [step]="step"
+            [thumbLabel]="thumbLabel"
+            [(ngModel)]="player.game.totalWins" name="totalWins" 
+            aria-labelledby="example-name-label">
+        </mat-slider>
+      </mat-card-content>
 
-        <mat-card-content>
-          <div class="example-label-container" [class]="'example-label-horizontal'">
-            <label id="example-name-label" class="example-name-label">Quantidade de Partidas</label>
-            <label class="example-value-label">{{player.game.totalGames}}</label>
-          </div>
-          <mat-slider
-              class="example-margin"
-              [max]="max"
-              min={{minGame}}
-              [step]="step"
-              [(ngModel)]="player.game.totalGames" 
-              [thumbLabel]="thumbLabel"
-              name="totalGames" 
-              aria-labelledby="example-name-label">
-          </mat-slider>
-        </mat-card-content>
+      <mat-card-content>
+        <div class="example-label-container" [class]="'example-label-horizontal'">
+          <label id="example-name-label" class="example-name-label">Quantidade de Partidas</label>
+          <label class="example-value-label">{{player.game.totalGames}}</label>
+        </div>
+        <mat-slider
+            class="example-margin"
+            [max]="max"
+            min={{minGame}}
+            [step]="step"
+            [(ngModel)]="player.game.totalGames" 
+            [thumbLabel]="thumbLabel"
+            name="totalGames" 
+            aria-labelledby="example-name-label">
+        </mat-slider>
+      </mat-card-content>
         
-      </mat-card>
-      <br>
+    </mat-card>
+    <br>
     <!--
     <mat-form-field class="full-width">
         <mat-label>Informe o total de partidas: </mat-label>

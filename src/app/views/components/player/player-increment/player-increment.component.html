@@ -12,6 +12,43 @@
             matInput placeholder="Ex: zezinho">
     </mat-form-field>
 
+    <mat-card class="example-result-card">
+        <mat-card-content>
+          <div class="example-label-container" [class]="'example-label-horizontal'">
+            <label id="example-name-label" class="example-name-label">Atualizar Vitórias</label>
+            <label class="example-value-label">{{player.game.totalWins}}</label>
+          </div>
+          <mat-slider
+              class="example-margin"
+              [max]="max"
+              [min]="minWin"
+              [step]="step"
+              [thumbLabel]="thumbLabel"
+              [(ngModel)]="player.game.totalWins" name="totalWins" 
+              aria-labelledby="example-name-label">
+          </mat-slider>
+        </mat-card-content>
+  
+        <mat-card-content>
+          <div class="example-label-container" [class]="'example-label-horizontal'">
+            <label id="example-name-label" class="example-name-label">Atualizar Partidas</label>
+            <label class="example-value-label">{{player.game.totalGames}}</label>
+          </div>
+          <mat-slider
+              class="example-margin"
+              [max]="max"
+              min={{minGame}}
+              [step]="step"
+              [(ngModel)]="player.game.totalGames" 
+              [thumbLabel]="thumbLabel"
+              name="totalGames" 
+              aria-labelledby="example-name-label">
+          </mat-slider>
+        </mat-card-content>
+          
+      </mat-card>
+      <br>
+    <!-- 
     <h4>Adicionar Vitórias</h4>
     <mat-input-counter name="player.nickname.game.totalWins" 
         [min]="+player.game.totalWins" 
@@ -29,13 +66,15 @@
         label="Partidas" 
         placeholder="Total de Partidas">
     </mat-input-counter>
-
+    -->
     <button class="mat-elevation-z8" (click)="increment()" mat-stroked-button color="primary">Atualizar</button>
     <button class="mat-elevation-z8" (click)="cancel()" mat-stroked-button color="warn">Cancelar</button>
 </form>
 
+<!-- 
 <div>
     <pre>
       {{player | json}}
     </pre>
 </div>
+-->
