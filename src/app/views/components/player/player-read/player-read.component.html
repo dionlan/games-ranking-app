@@ -34,7 +34,7 @@
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef> Atualizar </th>
         <td mat-cell *matCellDef=" let element">
-          <a routerLink="increment/{{ element.nickname}}"> 
+          <a routerLink="increment/{{ element.value.nickname}}"> 
             <i id="increment" class="material-icons">settings</i>    
           </a>
         </td>
