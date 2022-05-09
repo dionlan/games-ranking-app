@@ -8,27 +8,27 @@
 
       <ng-container matColumnDef="classification">
         <th mat-header-cell *matHeaderCellDef> Classificação </th>
-        <td mat-cell *matCellDef="let element; let i = index;"> {{i+1}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.key}} </td>
       </ng-container>
   
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef> Nome </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.value.name}} </td>
       </ng-container>
   
       <ng-container matColumnDef="nickname">
         <th mat-header-cell *matHeaderCellDef> Nickname </th>
-        <td mat-cell *matCellDef="let element"> {{element.nickname}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.value.nickname}} </td>
       </ng-container>
 
       <ng-container matColumnDef="game.totalWins">
         <th mat-header-cell *matHeaderCellDef> Vitórias </th>
-        <td mat-cell *matCellDef="let element"> {{element.game.totalWins}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.value.game.totalWins}} </td>
       </ng-container>
 
       <ng-container matColumnDef="game.totalGames">
         <th mat-header-cell *matHeaderCellDef> Partidas </th>
-        <td mat-cell *matCellDef="let element"> {{element.game.totalGames}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.value.game.totalGames}} </td>
       </ng-container>
 
       <ng-container matColumnDef="action">

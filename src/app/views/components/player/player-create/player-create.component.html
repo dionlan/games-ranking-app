@@ -35,35 +35,38 @@
     </mat-form-field>-->
 
     <mat-card class="example-result-card">
-      <mat-card-content>
-        <div class="example-label-container" [class]="'example-label-horizontal'">
-          <label id="example-name-label" class="example-name-label">Quantidade de Vitórias</label>
-          <label class="example-value-label">{{player.game.totalWins}}</label>
-        </div>
+        <mat-card-content>
+            <div class="example-label-container" [class]="'example-label-horizontal'">
+                <label id="example-name-label" class="example-name-label"> Adicionar {{
+                    player.game.totalWins
+                }} vitórias</label>
+            </div>
         <mat-slider
             class="example-margin"
             [max]="max"
             [min]="minWin"
             [step]="step"
+            [(ngModel)]="player.game.totalWins" 
+            name="valueWin" 
             [thumbLabel]="thumbLabel"
-            [(ngModel)]="player.game.totalWins" name="totalWins" 
             aria-labelledby="example-name-label">
         </mat-slider>
       </mat-card-content>
 
       <mat-card-content>
-        <div class="example-label-container" [class]="'example-label-horizontal'">
-          <label id="example-name-label" class="example-name-label">Quantidade de Partidas</label>
-          <label class="example-value-label">{{player.game.totalGames}}</label>
-        </div>
+            <div class="example-label-container" [class]="'example-label-horizontal'">
+                <label id="example-name-label" class="example-name-label"> Adicionar {{
+                    player.game.totalGames
+                }} partidas</label>
+            </div>
         <mat-slider
             class="example-margin"
             [max]="max"
-            min={{minGame}}
+            [min]="minGame"
             [step]="step"
             [(ngModel)]="player.game.totalGames" 
             [thumbLabel]="thumbLabel"
-            name="totalGames" 
+            name="valueGame" 
             aria-labelledby="example-name-label">
         </mat-slider>
       </mat-card-content>

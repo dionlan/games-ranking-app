@@ -16,7 +16,8 @@ export class PlayerCreateComponent {
   minGame = 1;
   thumbLabel = true;
   step = 1;
-  value = 0;
+  valueWin = 0;
+  valueGame = 1;
 
   totalWins = new FormControl(0, Validators.min(10));
   totalGames = new FormControl(0, [Validators.max(10 * Number(this.totalWins))]);

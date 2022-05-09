@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
@@ -10,19 +10,21 @@ import { PlayerService } from 'src/app/services/player.service';
   templateUrl: './player-read.component.html',
   styleUrls: ['./player-read.component.css']
 })
-export class PlayerReadComponent implements AfterViewInit {
-  players: Player[] = [];
+export class PlayerReadComponent implements OnInit  {
+  @Input() players: Player[] = [];
 
   displayedColumns: string[] = ['classification', 'name', 'nickname', 'game.totalWins', 'game.totalGames', 'action'];
 
-  dataSource = new MatTableDataSource<Player>(this.players);
+  dataSource = new MatTableDataSource<Player>();
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatPaginator, {static: true}) paginator!: MatPaginator;
 
   constructor(private service: PlayerService, private router: Router) {}
 
-  ngAfterViewInit() {
+  ngOnInit(): void {
+
     this.findAll();
+    
   }
 
   findAll():void{
@@ -30,6 +32,11 @@ export class PlayerReadComponent implements AfterViewInit {
       this.players = response;
       console.log(this.players);
       this.dataSource = new MatTableDataSource<Player>(this.players);
+      const transformedData: any [] = [];
+      Object.keys(this.dataSource.data).forEach((data) => {
+        transformedData.push({'key': data, 'value': this.players[Number.parseInt(data)]});
+      })
+      this.dataSource = new MatTableDataSource(transformedData);
       this.dataSource.paginator = this.paginator;
     })
   }
